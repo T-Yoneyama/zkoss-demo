@@ -4,7 +4,7 @@
 	<hbox align="center">
 		Keyword:
 		<textbox id="keywordBox" />
-		<button id="searchButton" label="Search" iconSclass="z-icon-search" />
+		<button id="searchButton" label="検索" iconSclass="z-icon-search" />
 	</hbox>
 	<listbox id="carListbox" emptyMessage="No car found in the result" height="160px" style="margin-top:10px">
 		<listhead>
