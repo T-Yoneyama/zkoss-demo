@@ -1,0 +1,27 @@
+<vlayout>
+	<zscript><![CDATA[
+		void changePosition(String pos){
+			grid.pagingPosition = pos;
+		}
+		
+		void changeMold(String mold){
+			grid.pagingChild.mold = mold;
+		}
+	]]></zscript>
+	<radiogroup onCheck="changePosition(self.selectedItem.label)">
+		<vbox>
+			<label value="Select a Placement for the Paging Indicator:"/>
+			<radio label="top" />
+			<radio label="bottom" checked="true" />
+			<radio label="both" />
+		</vbox>
+	</radiogroup>
+	<separator height="10px"/>
+	<radiogroup onCheck="changeMold(self.selectedItem.label)">
+		<vbox>
+			<label value="Select a Mold for the Paging:"/>
+			<radio label="default" checked="true" />
+			<radio label="os" />
+		</vbox>
+	</radiogroup>
+</vlayout>

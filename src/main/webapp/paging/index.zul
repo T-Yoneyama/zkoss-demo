@@ -1,0 +1,36 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="new page title" border="normal">
+		<div apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('local.satoseiki.demo.paging.PagingViewModel')">
+			<grid id="grid" model="@load(vm.allPurchases)" mold="paging"
+				pageSize="6">
+				<columns>
+					<column hflex="1" label="Order #" align="left" />
+					<column hflex="2" label="Item Purchased"
+						align="center" />
+					<column hflex="2" label="Purchased Time"
+						align="center" />
+					<column hflex="1" label="Paid" align="center" />
+				</columns>
+				<template name="model">
+					<row>
+						<label value="@load(each.id)" />
+						<listbox mold="select" hflex="1"
+							model="@load(vm.availableItems)"
+							selectedItem="@bind(each.item)">
+							<template name="model">
+								<listitem label="@load(each)" />
+							</template>
+						</listbox>
+						<timebox format="a hh:mm:ss" mold="rounded"
+							hflex="1" value="@load(each.time)" />
+						<checkbox hflex="1"
+							label="@load(each.paid ? 'yes' : 'no')"
+							checked="@bind(each.paid)" />
+					</row>
+				</template>
+			</grid>
+		</div>
+	</window>
+</zk>
